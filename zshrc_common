@@ -1,0 +1,77 @@
+# control
+VERSION="2.0.0-beta"
+OS_BIT=`getconf LONG_BIT`
+OH_AUTOUPDATE_INTERVAL="0"
+DB_UPDATE_INTERVAL="0"
+
+# setopt
+setopt interactivecomments
+
+# fonts
+NORMAL="$(tput sgr0)"
+BRIGHT="$(tput bold)"
+RED="${NORMAL}$(tput setaf 1)"
+GREEN="${NORMAL}$(tput setaf 2)"
+YELLOW="${NORMAL}$(tput setaf 3)"
+BLUE="${NORMAL}$(tput setaf 4)"
+WHITE="${NORMAL}$(tput setaf 7)"
+B_RED="${BRIGHT}$(tput setaf 1)"
+B_GREEN="${BRIGHT}$(tput setaf 2)"
+B_YELLOW="${BRIGHT}$(tput setaf 3)"
+B_BLUE="${BRIGHT}$(tput setaf 4)"
+B_WHITE="${BRIGHT}$(tput setaf 7)"
+
+# directory
+LOCAL_BIN="/usr/local/bin"
+DB_DIR="$HOME/Databases"
+DOWNLOADS_DIR="$HOME/Downloads"
+PROGRAMS_DIR="$HOME/Programs"
+PROJECTS_DIR="$HOME/Projects"
+COMPOSER_DIR="$HOME/.composer"
+SHORTCUTS_DIR="$HOME/.local/share/applications/"
+CONFIG_DIR="$OH_DIR/.config"
+REPO_DIR="$OH_DIR/repository"
+USER_DIR="$OH_DIR/user"
+DRUPALSECURE_CS_DIR="$PROGRAMS_DIR/drupalsecure_code_sniffs"
+CODER_SNIFFER_DIR="$COMPOSER_DIR/vendor/drupal/coder/coder_sniffer"
+USER_CONFIG_DIR="$USER_DIR/config"
+CIT_DOMAIN_USERS="domain\^users"
+
+# files
+ZSHRC="$HOME/.zshrc"
+ZSHRC_COMMON="$OH_DIR/zshrc_common"
+ZSHRC_USER="$USER_DIR/zshrc_user"
+DB_UPDATED="$DB_DIR/db_updated.sql.gz"
+OH_AUTOUPDATE_CTRL="$OH_DIR/.oh_autoupdate"
+DB_UPDATE_CTRL="$DB_DIR/.db_update"
+BEEP="/usr/share/sounds/freedesktop/stereo/complete.oga"
+
+# functions
+print_title() {
+  local MSG=$1
+  printf "\n${B_GREEN}$MSG${NORMAL}\n"
+}
+
+print_notice() {
+  local MSG=$1
+  printf "\n${B_YELLOW}$MSG${NORMAL}\n"
+}
+
+print_alert() {
+  local MSG=$1
+  printf "\n${B_RED}$MSG${NORMAL}\n"
+}
+
+print_done() {
+  local MSG=$1; local MODE=$2
+  if [[ "$MODE" != "quiet" ]]; then
+    printf "\n${B_BLUE}$MSG${NORMAL}\n"
+  fi
+}
+
+print_notify() {
+  local MSG_1=$1; local MSG_2=$2; local MODE=$3
+  if [[ "$MODE" != "quiet" ]]; then
+    notify-send $MSG_1 $MSG_2; paplay $BEEP
+  fi
+}

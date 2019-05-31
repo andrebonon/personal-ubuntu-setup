@@ -1,0 +1,21 @@
+diff --git a/DrupalSecure/Sniffs/General/HelperSniff.php b/DrupalSecure/Sniffs/General/HelperSniff.php
+index 63e8a9a..57a0f4c 100644
+--- a/DrupalSecure/Sniffs/General/HelperSniff.php
++++ b/DrupalSecure/Sniffs/General/HelperSniff.php
+@@ -648,7 +648,6 @@ class DrupalSecure_Sniffs_General_HelperSniff implements PHP_CodeSniffer_Sniff
+     
+     function getFunctionDefinitionArguments($stackPtr) {
+       $openBracket = $this->phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
+-      $closeBracket = $this->tokens[$openBracket]['parenthesis_closer'];
+ 
+       if ($this->tokens[$openBracket]['code'] !== T_OPEN_PARENTHESIS) {
+         return false;
+@@ -658,6 +657,8 @@ class DrupalSecure_Sniffs_General_HelperSniff implements PHP_CodeSniffer_Sniff
+         return false;
+       }
+       
++      $closeBracket = $this->tokens[$openBracket]['parenthesis_closer'];
++
+       // Start token of the first argument.
+         $start = $this->phpcsFile->findNext(T_VARIABLE, ($openBracket + 1), $closeBracket);
+         if ($start === false) {

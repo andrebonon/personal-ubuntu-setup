@@ -1,0 +1,18 @@
+"*":
+  core: {}
+  editor:
+    fontSize: 11
+    invisibles: {}
+    preferredLineLength: 120
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "56e37913-5011-2e9d-0b7d-2a89c00778b5"
+  "linter-phpcs":
+    codeStandardOrConfigFile: "Drupal,DrupalPractice,DrupalSecure"
+    executablePath: "/usr/local/bin/phpcs"
+    tabWidth: 2
+  welcome:
+    showOnStartup: false
