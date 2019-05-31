@@ -49,29 +49,29 @@ mkdir -p "$HOME/.local/share/applications" && chmod 700 "$HOME/.local/share/appl
 rsync -av . "$OH_DIR/"
 rm -f "$HOME/.local/share/keyrings/login.keyring" 2>/dev/null
 
-repository
-print_title "Installing REPOSITORY..."
+#repository
+#print_title "Installing REPOSITORY..."
 
 # repository -> macbuntu
-sudo add-apt-repository ppa:noobslab/macbuntu
+#sudo add-apt-repository ppa:noobslab/macbuntu
 
 # repository -> java
 sudo add-apt-repository ppa:webupd8team/java
 
 # repository -> nodejs
-wget -q -O - https://deb.nodesource.com/setup_6.x | sudo -E bash -
+#wget -q -O - https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # repository -> chrome and chromium
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 # repository -> virtualbox
-wget -q -O - https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
-echo deb http://download.virtualbox.org/virtualbox/debian trusty contrib | sudo tee /etc/apt/sources.list.d/virtualbox.list
+#wget -q -O - https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
+#echo deb http://download.virtualbox.org/virtualbox/debian trusty contrib | sudo tee /etc/apt/sources.list.d/virtualbox.list
 
 # repository -> spotify
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+#sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+#echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # repository -> update
 sudo apt-get -y update
@@ -81,17 +81,17 @@ sudo apt-get -y autoremove
 sudo apt-get -y autoclean
 
 # mac ubuntu theme packages
-print_title "Installing MAC Ubuntu Theme..."
-sudo apt-get -y install unity-tweak-tool
-sudo apt-get -y install gnome-tweak-tool
+#print_title "Installing MAC Ubuntu Theme..."
+#sudo apt-get -y install unity-tweak-tool
+#sudo apt-get -y install gnome-tweak-tool
 # docky
-sudo apt-get -y install plank
+#sudo apt-get -y install plank
 # theme
-sudo apt-get -y install macbuntu-os-icons-lts-v7
-sudo apt-get -y install macbuntu-os-ithemes-lts-v7
-sudo apt-get -y install macbuntu-os-plank-theme-lts-v7
+#sudo apt-get -y install macbuntu-os-icons-lts-v7
+#sudo apt-get -y install macbuntu-os-ithemes-lts-v7
+#sudo apt-get -y install macbuntu-os-plank-theme-lts-v7
 # albert
-sudo apt-get -y install albert
+#sudo apt-get -y install albert
 
 
 # program packages
@@ -99,12 +99,10 @@ print_title "Installing PROGRAM PACKAGES FROM SNAP..."
 sudo snap install spotify
 sudo snap install postman
 sudo snap install gimp
+sudo snap install slack --classic
 
 print_title "Installing PROGRAM PACKAGES..."
 sudo apt-get -y install oracle-java8-installer
-sudo apt-get -y install pepperflashplugin-nonfree
-sudo apt-get -y install virtualbox-5.0
-sudo apt-get -y install aria2
 sudo apt-get -y install pv
 sudo apt-get -y install vim
 sudo apt-get -y install xclip
@@ -112,7 +110,6 @@ sudo apt-get -y install terminator
 sudo apt-get -y install htop
 sudo apt-get -y install lnav
 sudo apt-get -y install meld
-sudo apt-get -y install shutter
 sudo apt-get -y install ttf-mscorefonts-installer
 sudo apt-get -y install xfonts-100dpi
 sudo apt-get -y install xfonts-75dpi
@@ -122,12 +119,9 @@ sudo apt-get -y install fonts-noto
 sudo apt-get -y install fonts-roboto
 sudo apt-get -y install build-essential
 sudo apt-get -y install python-software-properties
-sudo apt-get -y install imagemagick
-sudo apt-get -y install gimp
 sudo apt-get -y install curl
 sudo apt-get -y install git
 sudo apt-get -y install zsh
-sudo apt-get -y install nodejs
 sudo apt-get -y install ubuntu-restricted-extras
 
 # oh-my-zsh
