@@ -38,10 +38,10 @@ esac
 
 # prepare environment
 print_title "Preparing ENVIRONMENT..."
-mkdir -p $OH_DIR
-mkdir -p $USER_CONFIG_DIR
+#mkdir -p $OH_DIR
+#mkdir -p $USER_CONFIG_DIR
 mkdir -p "$HOME/.local/share/applications" && chmod 700 "$HOME/.local/share/applications"
-rsync -av . "$OH_DIR/"
+#rsync -av . "$OH_DIR/"
 rm -f "$HOME/.local/share/keyrings/login.keyring" 2>/dev/null
 
 # repository -> macbuntu
@@ -52,7 +52,8 @@ sudo add-apt-repository ppa:webupd8team/java
 
 # repository -> chrome and chromium
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo deb [arch=amd64] https://dl.google.com/linux/direct/ stable current | sudo tee /etc/apt/sources.list.d/google-chrome.list
+echo deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt-get install google-chrome-stable
 
 # repository -> update
 sudo apt-get -y update
@@ -106,6 +107,8 @@ sudo apt-get -y install zsh
 sudo apt-get -y install ubuntu-restricted-extras
 
 # oh-my-zsh
+sudo sh -c "getent passwd $(whoami) >> /etc/passwd"
+
 print_title "Installing OH-MY-ZSH..."
 chsh -s $(which zsh)
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
