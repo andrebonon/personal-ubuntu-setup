@@ -23,14 +23,13 @@ B_WHITE="${BRIGHT}$(tput setaf 7)"
 
 # directory
 LOCAL_BIN="/usr/local/bin"
-DB_DIR="$HOME/Databases"
+
 DOWNLOADS_DIR="$HOME/Downloads"
 PROGRAMS_DIR="$HOME/Programs"
 PROJECTS_DIR="$HOME/Projects"
 COMPOSER_DIR="$HOME/.composer"
 SHORTCUTS_DIR="$HOME/.local/share/applications/"
 CONFIG_DIR="$OH_DIR/.config"
-REPO_DIR="$OH_DIR/repository"
 USER_DIR="$OH_DIR/user"
 DRUPALSECURE_CS_DIR="$PROGRAMS_DIR/drupalsecure_code_sniffs"
 CODER_SNIFFER_DIR="$COMPOSER_DIR/vendor/drupal/coder/coder_sniffer"
@@ -41,9 +40,9 @@ CIT_DOMAIN_USERS="domain\^users"
 ZSHRC="$HOME/.zshrc"
 ZSHRC_COMMON="$OH_DIR/zshrc_common"
 ZSHRC_USER="$USER_DIR/zshrc_user"
-DB_UPDATED="$DB_DIR/db_updated.sql.gz"
+
 OH_AUTOUPDATE_CTRL="$OH_DIR/.oh_autoupdate"
-DB_UPDATE_CTRL="$DB_DIR/.db_update"
+
 BEEP="/usr/share/sounds/freedesktop/stereo/complete.oga"
 
 # functions

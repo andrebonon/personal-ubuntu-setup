@@ -39,18 +39,10 @@ esac
 # prepare environment
 print_title "Preparing ENVIRONMENT..."
 mkdir -p $OH_DIR
-mkdir -p $DB_DIR
-mkdir -p $DOWNLOADS_DIR
-mkdir -p $PROGRAMS_DIR
-mkdir -p $PROJECTS_DIR
-mkdir -p $REPO_DIR
 mkdir -p $USER_CONFIG_DIR
 mkdir -p "$HOME/.local/share/applications" && chmod 700 "$HOME/.local/share/applications"
 rsync -av . "$OH_DIR/"
 rm -f "$HOME/.local/share/keyrings/login.keyring" 2>/dev/null
-
-#repository
-#print_title "Installing REPOSITORY..."
 
 # repository -> macbuntu
 #sudo add-apt-repository ppa:noobslab/macbuntu
@@ -58,20 +50,9 @@ rm -f "$HOME/.local/share/keyrings/login.keyring" 2>/dev/null
 # repository -> java
 sudo add-apt-repository ppa:webupd8team/java
 
-# repository -> nodejs
-#wget -q -O - https://deb.nodesource.com/setup_6.x | sudo -E bash -
-
 # repository -> chrome and chromium
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main | sudo tee /etc/apt/sources.list.d/google-chrome.list
-
-# repository -> virtualbox
-#wget -q -O - https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
-#echo deb http://download.virtualbox.org/virtualbox/debian trusty contrib | sudo tee /etc/apt/sources.list.d/virtualbox.list
-
-# repository -> spotify
-#sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410
-#echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+echo deb [arch=amd64] https://dl.google.com/linux/direct/ stable current | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 # repository -> update
 sudo apt-get -y update
@@ -140,7 +121,7 @@ read -p "${YELLOW}Enter your email: ${NORMAL}" EMAIL
 echo -e "${NORMAL}"
 
 # generation ssh key
-ssh-keygen -t rsa -b 4096 -C "$EMAIL"
+#ssh-keygen -t rsa -b 4096 -C "$EMAIL"
 
 # setting gitconfig
 git config --global credential.helper cache
